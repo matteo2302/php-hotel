@@ -51,18 +51,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <title>Hotels</title>
 </head>
 <body>
-  <? foreach($hotels as $hotel): ?>
-  <ul>
-    <li><?= $hotel['name']?></li>
-    <li><?= $hotel['description']?></li>
-    <li><?= $hotel['parking']?></li>
-    <li><?= $hotel['vote']?></li>
-    <li><?= $hotel['distance_to_center']?></li>
-  </ul>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Hotel</th>
+      <th scope="col">descrizione</th>
+      <th scope="col">parcheggio</th>
+      <th scope="col">voto</th>
+      <th scope="col">distanza dal centro</th>
+    </tr>
+  </thead> <? foreach($hotels as $hotel): ?>
+  <tbody>
+    <tr>
+      <th scope="row"><?= $hotel['name']?></th>
+      <td><?= $hotel['description']?></td>
+      <? if('parking') : ?>
+      <td><i class="fa-solid fa-xmark"></i></td>
+      <? else : ?>
+        <td><i class="fa-solid fa-check"></i></td>
+      <? endif ?>  
+      <td><?= $hotel['vote']?></td>
+      <td><?= $hotel['distance_to_center']?></td>
+    </tr>
+  </tbody>
   <? endforeach?>
 </body>
 </html>
