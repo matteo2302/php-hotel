@@ -70,7 +70,7 @@
     <tr>
       <th scope="row"><?= $hotel['name']?></th>
       <td><?= $hotel['description']?></td>
-      <? if('parking') : ?>
+      <? if($hotel['parking']) : ?>
       <td><i class="fa-solid fa-xmark"></i></td>
       <? else : ?>
         <td><i class="fa-solid fa-check"></i></td>
